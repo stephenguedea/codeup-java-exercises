@@ -7,10 +7,11 @@ public class HelloWorld {
 //        int myFavoriteNumber = 9;
 //        System.out.println(myFavoriteNumber);
 
-//        String myString = "3.14159";
-//        System.out.println(myString);
+        String myString = "3.14159";
+        System.out.println(myString);
 
-//      1 way  float myNumber = 3.14F;
+//      1 way
+//        float myNumber = 3.14F;
 //        System.out.println(myNumber);
 
 //        OR
@@ -19,8 +20,8 @@ public class HelloWorld {
 //                System.out.println(num);
 
 //        OR OR
-//        float myNumber = (float) 3.14;
-//        System.out.println(myNumber);
+        float myNumber = (float) 3.14;
+        System.out.println(myNumber);
 
         // 10.
 //        int x = 5;
@@ -46,10 +47,10 @@ public class HelloWorld {
         // 12.
 //        OBJECT IS THE MOST GENERIC TYPE IN JAVA.
 //        YOU CAN ASSIGN ANY VALUE TO A VARIABLE OF TYPE Object
-        String theNumberThree = "three";
-        Object o = theNumberThree;
-//        int three = (int) "three";
-        System.out.println(o);
+//        String theNumberThree = "three";
+//        Object o = theNumberThree;
+////        int three = (int) "three";
+//        System.out.println(o);
 
 //        int x = 4;
 //        x = x + 5;
@@ -76,14 +77,14 @@ public class HelloWorld {
 //        System.out.println(y);
 
 
-        System.out.println(Byte.MAX_VALUE); // 127
-//        byte gulp = 127;
-//        gulp++;
-//        System.out.println(gulp); // -128
-
-        byte gulp = -128;
-        gulp--;
-        System.out.println(gulp); // 127
+//        System.out.println(Byte.MAX_VALUE); // 127
+////        byte gulp = 127;
+////        gulp++;
+////        System.out.println(gulp); // -128
+//
+//        byte gulp = -128;
+//        gulp--;
+//        System.out.println(gulp); // 127
 
     }
 }
