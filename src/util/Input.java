@@ -18,6 +18,8 @@ public class Input {
 
     //        Scanner scanner = new Scanner(System.in);
 
+
+    // String getString
     public String getString() {
         System.out.println("Welcome to your Application\n======================\n");
         System.out.println("Would you like to start the application? [Y/N]");
@@ -25,6 +27,7 @@ public class Input {
         return userInput;
     }
 
+    // boolean yesNo
     public boolean yesNo(String userInput){
 
         if (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")){
@@ -38,13 +41,14 @@ public class Input {
 
     }
 
+    // int getInt
     public int getInt(int min, int max){
-        System.out.println("Enter your age: " + min + " and " + max);
+        System.out.println("Enter a number: " + min + " - " + max);
 
         int userInput = scanner.nextInt();
 
         if (userInput <= max && userInput >= min) {
-            System.out.println("Thank you!\n");
+            System.out.println("Thank you\n");
 
         } else {
             System.out.println("Please read the instructions\n");
@@ -53,10 +57,12 @@ public class Input {
         return userInput;
     }
 
+    // getInt()
     public int getInt() {
         return scanner.nextInt();
     }
 
+    // double getDouble
     public double getDouble(double min, double max) {
         System.out.println("Enter an expected hourly rate: " + min + " and " + max);
 
@@ -72,6 +78,7 @@ public class Input {
         }
     }
 
+    // getDouble()
     public double getDouble(){
         return scanner.nextDouble();
     }

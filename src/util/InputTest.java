@@ -3,10 +3,11 @@ package util;
 import java.util.Scanner;
 
 public class InputTest {
+
+    // main method
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Song
-
-    Input test = new Input(scanner); // Loading song onto Deck
+        Input test = new Input(scanner); // Loading song onto Deck
 
 
         // Play song
