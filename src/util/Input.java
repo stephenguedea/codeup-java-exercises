@@ -44,12 +44,9 @@ public class Input {
     // int getInt
     public int getInt(int min, int max){
         System.out.println("Enter a number: " + min + " - " + max);
-
         int userInput = scanner.nextInt();
-
         if (userInput <= max && userInput >= min) {
             System.out.println("Thank you\n");
-
         } else {
             System.out.println("Please read the instructions\n");
             return getInt(min, max);
@@ -59,7 +56,14 @@ public class Input {
 
     // getInt()
     public int getInt() {
-        return scanner.nextInt();
+        String input = getString();
+
+        try {
+            return Integer.valueOf(input);
+        } catch (NumberFormatException e){
+            System.out.println("ERROR: Must enter a number");
+            return getInt();
+        }
     }
 
     // double getDouble
@@ -80,7 +84,14 @@ public class Input {
 
     // getDouble()
     public double getDouble(){
-        return scanner.nextDouble();
+        String input = getString();
+
+        try {
+            return Double.valueOf(input);
+        } catch (NumberFormatException e) {
+            System.out.println("ERROR: Must enter a number");
+            return getDouble();
+        }
     }
 
 }
