@@ -5,10 +5,6 @@ import java.util.Scanner;
 public class Input {
     private Scanner scanner; // scanner variable
     //create input object and pass scanner object into the constructor
-//    public Input() {
-//        scanner
-//        new Scanner(System.in);
-//    }
 
     //create input object and pass scanner object into the constructor
     public Input(Scanner scanner) {
@@ -16,66 +12,50 @@ public class Input {
     }
 
 
-    //        Scanner scanner = new Scanner(System.in);
 
 
     // String getString
     public String getString() {
-        System.out.println("Welcome to your Application\n======================\n");
-        System.out.println("Would you like to start the application? [Y/N]");
-        String userInput = scanner.next();
-        return userInput;
+        return scanner.nextLine();
     }
 
     // boolean yesNo
-    public boolean yesNo(String userInput){
-
-        if (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")){
-            System.out.println("Great, let's start!");
-
-        } else if (userInput.equalsIgnoreCase("n") || userInput.equalsIgnoreCase("no")) {
-            System.out.println("Goodbye");
-        }
-
-        return true;
-
+    public boolean yesNo(){
+        String userInput = getString();
+        return userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes");
     }
 
     // int getInt
     public int getInt(int min, int max){
-        System.out.println("Enter a number: " + min + " - " + max);
-        int userInput = scanner.nextInt();
+//        System.out.println("Enter a number: " + min + " - " + max);
+        int userInput = getInt();
         if (userInput <= max && userInput >= min) {
             System.out.println("Thank you\n");
+            return userInput;
         } else {
             System.out.println("Please read the instructions\n");
             return getInt(min, max);
         }
-        return userInput;
     }
 
     // getInt()
     public int getInt() {
-        String input = getString();
-
+        int inputInteger;
         try {
-            return Integer.valueOf(input);
+            inputInteger = Integer.valueOf(getString());
         } catch (NumberFormatException e){
-            System.out.println("ERROR: Must enter a number");
+            System.out.println("ERROR: Must enter a non-decimal number");
             return getInt();
         }
+        return inputInteger;
     }
 
     // double getDouble
     public double getDouble(double min, double max) {
-        System.out.println("Enter an expected hourly rate: " + min + " and " + max);
-
-        double userInput = scanner.nextDouble();
-
+//        System.out.println("Enter a number between " + min + " and " + max);
+        double userInput = getDouble();
         if (userInput <= max && userInput >= min) {
-            System.out.println("Looks good, we'll look other your information and contact you shortly. Thank you!\n");
             return userInput;
-
         } else {
             System.out.println("Please read the instructions\n");
             return getDouble(min, max);
@@ -84,14 +64,45 @@ public class Input {
 
     // getDouble()
     public double getDouble(){
-        String input = getString();
-
+        double userInput;
         try {
-            return Double.valueOf(input);
+            userInput = Double.valueOf(getString());
         } catch (NumberFormatException e) {
-            System.out.println("ERROR: Must enter a number");
+            System.out.println("ERROR: Must enter a decimal number");
             return getDouble();
         }
+        return userInput;
+    }
+
+    // getBinary
+    public int getBinary() {
+        int output;
+        try {
+            output = Integer.valueOf(getString(), 2);
+        } catch (NumberFormatException e){
+            System.out.println("ERROR: Invalid binary number. Try again.");
+            return getBinary();
+        }
+        return output;
+    }
+
+    // getHex
+    public int getHex(){
+        int output;
+        try {
+            output = Integer.valueOf(getString(), 16);
+        } catch (NumberFormatException e) {
+            System.out.println("ERROR: Invalid hexadecimal. Try again.");
+            return getHex();
+        }
+        return output;
+    }
+
+    public static void main(String[] args) {
+        Input input = new Input(new Scanner(System.in));
+        System.out.println("Enter a number: ");
+        int userInt = input.getBinary();
+        System.out.println(userInt);
     }
 
 }
