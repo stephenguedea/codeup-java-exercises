@@ -2,6 +2,7 @@ package LearningJava.Lessons.Lesson11JavaProject;
 
 import util.Input;
 
+import javax.sound.midi.Soundbank;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -41,12 +42,14 @@ public class MembershipManagement {
     public int getChoice() {
         int choice;
         String menu = "WELCOME TO OZONE FITNESS CENTER " +
-                     "\n==================================" +
-                    "\nAvailable options\n" +
-                     "\n1) Add Member" +
-                     "\n2) Remove Member" +
-                     "\n3) Display Member Information" +
-                     "\n\nPlease select an option (or Enter -1 to quit): ";
+                     "\n**************************************" +
+                     "\n* Available options                  *" +
+                     "\n*                                    *" +
+                     "\n* 1) Add Member                      *" +
+                     "\n* 2) Remove Member                   *" +
+                     "\n* 3) Display Member Information      *" +
+                     "\n**************************************" +
+                "\n\nPlease select an option (or Enter -1 to quit): ";
         System.out.println(menu);
         choice = getIntInput();
         return choice;
@@ -103,7 +106,10 @@ public class MembershipManagement {
             mbr = new SingleClubMember('S', memberID, name, fees, club);
             m.add(mbr);
             mem = mbr.toString();
+            System.out.println("**************************************");
             System.out.println("STATUS: Single Club Member added!\nMember Name: " + name + "\nMember ID: " + memberID);
+            System.out.println("**************************************\n\n\n");
+
 
             // add a multi club member
         } else {
@@ -124,7 +130,10 @@ public class MembershipManagement {
             mbr = new MulitClubMember('M', memberID, name, fees, 100);
             m.add(mbr);
             mem = mbr.toString();
+            System.out.println("**************************************");
             System.out.println("STATUS: MultiClub Member added!\nMember Name: " + name + "\nMember ID: " + memberID);
+            System.out.println("**************************************\n\n\n");
+
         }
         return mem;
     }
@@ -137,11 +146,17 @@ public class MembershipManagement {
         for (int i = 0; i < m.size(); i++) {
             if (m.get(i).getMemberID() == memberID) {
                 m.remove(i);
-                System.out.println("Member removed!");
+                System.out.println("**************************************");
+                System.out.println("* Member removed!                    *");
+                System.out.println("**************************************\n\n\n");
+
                 return;
             }
         }
-        System.out.println("Member not found");
+        System.out.println("**************************************");
+        System.out.println("* Member not found                   *");
+        System.out.println("**************************************\n\n\n");
+
     }
 
     public void printMemberInfo(LinkedList<Member> m){
@@ -151,14 +166,19 @@ public class MembershipManagement {
         for (int i = 0; i < m.size(); i++) {
             if (m.get(i).getMemberID() == memberID) {
                 String[] memberInfo = m.get(i).toString().split(", ");
+                System.out.println("**************************************");
                 System.out.println("Member Type: " + memberInfo[0]);
                 System.out.println("Member ID: " + memberInfo[1]);
                 System.out.println("Member Name: " + memberInfo[2]);
                 System.out.println("Membership Fees: " + memberInfo[3]);
                 if (memberInfo[0].equalsIgnoreCase("s")) {
                     System.out.println("Club ID: " + memberInfo[4]);
+                    System.out.println("**************************************\n\n");
+
                 } else {
                     System.out.println("Membership Points: " + memberInfo[4]);
+                    System.out.println("**************************************\n\n");
+
                 }
                 return;
             }
